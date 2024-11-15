@@ -189,7 +189,7 @@ const battle = async (stage, player, monster) => {
 
     logs.forEach((log) => console.log(log));  // 현재까지의 전투 로그 출력
 
-    console.log(chalk.green(`\n1. 공격한다 2.더블어택(80%) 3.연속공격(초기 80%) 4.돌진 5.즉사마법(10%) 6.공격불가 마법(50%) 7.자살기술`));
+    console.log(chalk.green(`\n1. 공격한다 2.더블어택(80%) 3.연속공격(초기 80%) 4.돌진 5.즉사마법(10%) 6.공격불가 마법(50%)`));
     const choice = readlineSync.question('당신의 선택은? ');
 
     switch (choice) {
@@ -223,13 +223,8 @@ const battle = async (stage, player, monster) => {
         disableAttack(logs, 50, monster);  // 50% 확률로 몬스터의 공격 불가 마법 발동
         break;
       }
-      case '7': {
-        player.hp -= 999999999999999;
-        logs.push(chalk.red(`자살했습니다\n`));
-        break;
-      }
       default: {
-        logs.push(chalk.yellow(`잘못된 입력입니다. 1, 2, 3, 4, 5, 6, 7을 선택하세요.\n`));
+        logs.push(chalk.yellow(`잘못된 입력입니다. 1, 2, 3, 4, 5, 6을 선택하세요.\n`));
         continue;  // 잘못된 입력은 다시 입력을 받도록
       }
     }
